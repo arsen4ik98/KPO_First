@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace KPO_FirstLab
 {
-    class QueueRealisation<T> : IQueueRealisation<T>
+    public class QueueRealisation<T> : IQueueRealisation<T>
     {
 
         private T[] Que = new T[10];
@@ -46,7 +46,7 @@ namespace KPO_FirstLab
             }
         }
 
-        bool IQueueRealisation<T>.IsEmpty()
+        public bool IsEmpty()
         {
             if (count == 0)
             {
@@ -58,7 +58,7 @@ namespace KPO_FirstLab
             }
         }
 
-        T IQueueRealisation<T>.TakeTop()
+        public T TakeTop()
         {
             return Que[0];
         }

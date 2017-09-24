@@ -10,6 +10,13 @@ namespace KPO_FirstLab
     {
         static void Main(string[] args)
         {
+            QueueRealisation<int> asd = new QueueRealisation<int>();
+            Console.WriteLine(asd.IsEmpty());
+            asd.Push(1);
+            asd.Push(2);
+            Console.WriteLine(asd.Pop());
+            Console.WriteLine(asd.TakeTop());
+            Console.ReadKey();
         }
     }
 }
