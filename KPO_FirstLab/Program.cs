@@ -24,8 +24,9 @@ namespace KPO_FirstLab
                 Console.WriteLine(i);
             }
             Console.WriteLine("Клон");
-            QueueRealisation<int> stack2 = (QueueRealisation<int>)asd.Clone();
 
+            QueueRealisation<int> stack2 = (QueueRealisation<int>)asd.Clone();
+            
             foreach (var i in stack2)
             {
                 Console.WriteLine(i);

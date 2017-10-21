@@ -75,7 +75,7 @@ namespace KPO_FirstLab
 
         public IEnumerator<T> GetEnumerator()
         {
-            for (int i = 0; i < Que.Length - 1; ++i)
+            for (int i = 0; i < count; ++i)
 
                 yield return Que[i]; // 2
         }
