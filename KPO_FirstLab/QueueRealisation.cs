@@ -3,18 +3,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Collections;
 
 namespace KPO_FirstLab
 {
-    public class QueueRealisation<T> : IQueueRealisation<T>
+    public class QueueRealisation<T> : IQueueRealisation<T>, IEnumerable<T>, ICloneable
     {
 
-        private T[] Que = new T[10];
-        private int count = 0;
+        public T[] Que = new T[3];
+        public int count = 0;
 
         public T Pop()
         {
-            if (Que.Length == 0)
+            if (IsEmpty()) //fixed with method (there was count checker), а если по-русски, то я немного не то использовал. 
+            //создал метод проверки на пустоту и не использовал его, лол. чудовище
             {
                 throw new Exception("massive is empty");
             }
@@ -61,6 +63,31 @@ namespace KPO_FirstLab
         public T TakeTop()
         {
             return Que[0];
+        }
+
+
+
+        //public object Clone() //поверхностное (неглубокое) копирование
+        //{
+        //    return this.MemberwiseClone();
+        //}
+
+
+        public IEnumerator<T> GetEnumerator()
+        {
+            for (int i = 0; i < Que.Length - 1; ++i)
+
+                yield return Que[i]; // 2
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return ((IEnumerable)this).GetEnumerator();
+        }
+
+        public object Clone() //поверхностное (неглубокое) копирование
+        {
+            return this.MemberwiseClone();
         }
     }
 }

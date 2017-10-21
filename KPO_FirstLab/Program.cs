@@ -14,8 +14,22 @@ namespace KPO_FirstLab
             Console.WriteLine(asd.IsEmpty());
             asd.Push(1);
             asd.Push(2);
-            Console.WriteLine(asd.Pop());
-            Console.WriteLine(asd.TakeTop());
+            asd.Push(4);
+            Console.WriteLine("Убираем " + asd.Pop());
+            Console.WriteLine("Самая верхняя " + asd.TakeTop());
+
+            Console.WriteLine("Очередь");
+            foreach (var i in asd)
+            {
+                Console.WriteLine(i);
+            }
+            Console.WriteLine("Клон");
+            QueueRealisation<int> stack2 = (QueueRealisation<int>)asd.Clone();
+
+            foreach (var i in stack2)
+            {
+                Console.WriteLine(i);
+            }
             Console.ReadKey();
         }
     }
