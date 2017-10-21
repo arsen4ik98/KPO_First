@@ -10,12 +10,12 @@ namespace KPO_FirstLab
     public class QueueRealisation<T> : IQueueRealisation<T>, IEnumerable<T>, ICloneable
     {
 
-        public T[] Que = new T[3];
+        public T[] Que = new T[10];
         public int count = 0;
 
         public T Pop()
         {
-            if (IsEmpty()) //fixed with method (there was count checker), а если по-русски, то я немного не то использовал. 
+            if (Que.Length == 0 || IsEmpty()) //fixed with method (there was count checker), а если по-русски, то я немного не то использовал. 
             //создал метод проверки на пустоту и не использовал его, лол. чудовище
             {
                 throw new Exception("massive is empty");
